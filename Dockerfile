@@ -1,6 +1,8 @@
-FROM java:8
+FROM samirtalwar/gradle-build
+
 EXPOSE 8080
 EXPOSE 8081
 
-ADD target/dropwizard-helloworld-0.1-SNAPSHOT.jar dropwizard-helloworld.jar
-ENTRYPOINT java -jar dropwizard-helloworld.jar server
+RUN tar xf build/distributions/app-0.1-SNAPSHOT.tar -C /usr/share
+RUN mv /usr/share/app-0.1-SNAPSHOT /usr/share/app
+ENTRYPOINT /usr/share/app/bin/app server

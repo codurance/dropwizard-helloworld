@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+group = 'com.codurance'
+version = '0.1-SNAPSHOT'
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+mainClassName = 'com.codurance.HelloWorldApplication'
+
+ext.versions = [
+    dropwizard: '0.7.1',
+    hamcrest: '1.3',
+    junit: '4.11',
+    mockito: '1.9.5'
+]
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'io.dropwizard', name: 'dropwizard-core', version: versions.dropwizard
+    compile group: 'io.dropwizard', name: 'dropwizard-assets', version: versions.dropwizard
+    compile group: 'io.dropwizard', name: 'dropwizard-auth', version: versions.dropwizard
+
+    testCompile group: 'io.dropwizard', name: 'dropwizard-testing', version: versions.dropwizard
+    testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: versions.hamcrest
+    testCompile group: 'junit', name: 'junit', version: versions.junit
+    testCompile group: 'org.mockito', name: 'mockito-core', version: versions.mockito
+}
