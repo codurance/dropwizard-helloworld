@@ -1,5 +1,13 @@
 apply plugin: 'java'
 apply plugin: 'application'
+apply plugin: 'docker'
+
+buildscript {
+    repositories { jcenter() }
+    dependencies {
+        classpath 'se.transmode.gradle:gradle-docker:1.2'
+    }
+}
 
 group = 'com.codurance'
 version = '0.1-SNAPSHOT'
@@ -29,4 +37,9 @@ dependencies {
     testCompile group: 'org.hamcrest', name: 'hamcrest-library', version: versions.hamcrest
     testCompile group: 'junit', name: 'junit', version: versions.junit
     testCompile group: 'org.mockito', name: 'mockito-core', version: versions.mockito
+}
+
+distDocker {
+    applicationName = name
+    dockerfile = file('Dockerfile')
 }

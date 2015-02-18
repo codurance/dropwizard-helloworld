@@ -1,13 +1,8 @@
-.classpath
-.project
-.settings
-target/*
-compiled/*
+# Gradle
+.gradle
+build
 
+# IntelliJ IDEA
 .idea
-/out
-**/*.iml
+out
 *.iml
-*.log
-
-**/.DS_Store
