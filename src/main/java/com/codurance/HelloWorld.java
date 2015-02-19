@@ -11,10 +11,15 @@ import javax.ws.rs.core.MediaType;
 @Path("/hello_world")
 @Produces(MediaType.APPLICATION_JSON)
 public class HelloWorld {
+    @Timed
+    @GET
+    public Greeting greet() {
+        return new Greeting();
+    }
 
-	@GET
-	@Timed
-	public String greet() {
-		return "{ greeting: \"Hello World\"}";
-	}
+    public static class Greeting {
+        public String getGreeting() {
+            return "Hello, World!";
+        }
+    }
 }
